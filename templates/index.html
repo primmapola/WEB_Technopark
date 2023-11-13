@@ -1,0 +1,42 @@
+{% extends 'layouts/base.html' %}
+
+{% block content %}
+
+
+<section class="questions col-md-8">
+
+{% for question in questions %}
+    <div class="card mb-4">
+    <div class="card-header">
+        {{ question.title }}
+        <small class="float-right">Дата публикации: 18.10.2023</small>
+    </div>
+    <div class="card-body">
+        <p class="card-text">{{ question.content }}</p>
+        <p class="card-text"><small class="text-muted">Автор: UserName</small></p>
+    </div>
+    <div class="card-footer d-flex justify-content-between align-items-center">
+        <button class="btn btn-outline-primary">
+            <i class="far fa-thumbs-up"></i> Лайк
+        </button>
+        <span>Ответов: 12</span>
+        <button class="btn btn-primary">Ответить</button>
+    </div>
+</div>
+{% endfor %}
+
+    <nav aria-label="Page navigation">
+      <ul class="pagination justify-content-center">
+        <li class="page-item disabled"><a class="page-link" href="#" tabindex="-1">Предыдущая</a></li>
+        <li class="page-item"><a class="page-link" href="#">1</a></li>
+        <li class="page-item"><a class="page-link" href="#">2</a></li>
+        <li class="page-item"><a class="page-link" href="#">3</a></li>
+        <li class="page-item"><a class="page-link" href="#">Следующая</a></li>
+      </ul>
+    </nav>
+
+
+
+</section>
+
+{%  endblock %}
