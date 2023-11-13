@@ -76,4 +76,28 @@ header a {
     color: #ced4da;
 }
 
+.pagination {
+    text-align: center;
+    padding: 20px 0;
+}
+
+.pagination a, .pagination span {
+    display: inline-block;
+    padding: 8px 16px;
+    margin: 0 4px;
+    border: 1px solid #ddd;
+    text-decoration: none;
+    color: #428bca;
+}
+
+.pagination .current, .pagination .disabled {
+    background-color: #f5f5f5;
+    color: #777;
+}
+
+.pagination a:hover {
+    border-color: #428bca;
+}
+
+
 

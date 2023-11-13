@@ -3,7 +3,7 @@
 <div class="col-md-8">
 
     <div class="question-block mb-5 p-3 border rounded">
-        <h2 class="question-title mb-2">Манипуляции</h2>
+        <h2 class="question-title mb-2">{{ question.title }}</h2>
 
         <p class="question-meta mb-3">
             <small>Posted by <a href="#">Author</a> on <time datetime="2023-01-01">Jan 1, 2023</time></small>
@@ -14,13 +14,29 @@
         </p>
 
         <div class="question-body">
-            <p>Что такое доброта и как ее использовать.</p>
+            <p>{{ question.content }}</p>
         </div>
     </div>
 
     <div class="answers-block">
         <h3 class="answers-title mb-3">Ответы</h3>
 
+        <div class="answer mb-4 p-3 border rounded">
+            <div class="answer-meta mb-2">
+                <small>Answered by <a href="#">User1</a> on <time datetime="2023-01-02">Jan 2, 2023</time></small>
+            </div>
+            <div class="answer-body">
+                <p>Answer content goes here...</p>
+            </div>
+        </div>
+        <div class="answer mb-4 p-3 border rounded">
+            <div class="answer-meta mb-2">
+                <small>Answered by <a href="#">User1</a> on <time datetime="2023-01-02">Jan 2, 2023</time></small>
+            </div>
+            <div class="answer-body">
+                <p>Answer content goes here...</p>
+            </div>
+        </div>
         <div class="answer mb-4 p-3 border rounded">
             <div class="answer-meta mb-2">
                 <small>Answered by <a href="#">User1</a> on <time datetime="2023-01-02">Jan 2, 2023</time></small>
