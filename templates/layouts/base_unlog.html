@@ -26,12 +26,8 @@
     </div>
 
     <div class="user-info">
-        <img src="{% static 'assets/avatar.png' %}" alt="UserName" style="width: 50px; height: 50px; border-radius: 50%;">
-        UserName
-        <div class="user-actions mt-2">
-            <a href="{% url 'settingsView' %}" class="btn btn-outline-primary btn-sm">Настройки</a>
-            <a href="{% url 'loginView' %}" class="btn btn-outline-danger btn-sm">Выйти</a>
-        </div>
+        <a href="{% url 'loginView' %}" class="btn btn-outline-primary btn-sm">Login</a>
+        <a href="{% url 'signupView' %}" class="btn btn-outline-success btn-sm">SignUp</a>
     </div>
 </header>
 
@@ -104,7 +100,7 @@
     </div>
 
     <!-- jQuery и Bootstrap JS -->
-    <script src="{% static 'js/jquery.min.js' %}"></script>
+   <script src="{% static 'js/jquery.min.js' %}"></script>
     <script src="{% static 'js/bootstrap.min.js' %}"></script>
 </body>
 </html>

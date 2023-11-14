@@ -1,0 +1,13 @@
+{% load static %}
+
+{% block rating %}
+    <div class="vote-controls">
+            <button class="btn btn-outline-secondary" disabled>
+                <img src="{% static 'svg/arrow-up.svg' %}">
+            </button>
+            <span class="votes-count">0</span>
+            <button class="btn btn-outline-secondary" disabled>
+                <img src="{% static 'svg/arrow-down.svg' %}">
+            </button>
+        </div>
+{% endblock %}

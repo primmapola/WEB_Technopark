@@ -1,0 +1,31 @@
+{% extends 'layouts/base_unlog.html' %}
+
+{% load static %}
+
+{% block content %}
+<div class="col-md-8">
+    <div class="login-page">
+        <h2>Вход в аккаунт</h2>
+        <!-- Сообщение об ошибке -->
+        {% if error_message %}
+            <div class="alert alert-danger" role="alert">
+            Sorry, wrong password!
+            </div>
+        {% endif %}
+        <form>
+            <div class="form-group">
+                <label for="login">Логин</label>
+                <input type="text" class="form-control" id="login" name="login" placeholder="Введите логин">
+            </div>
+
+            <div class="form-group">
+                <label for="password">Пароль</label>
+                <input type="password" class="form-control" id="password" name="password" placeholder="Введите пароль">
+            </div>
+
+            <button type="submit" class="btn btn-primary">Войти</button>
+            <a href="{% url 'signupView' %}" class="btn btn-secondary">Создать новый аккаунт</a>
+        </form>
+    </div>
+</div>
+{% endblock %}

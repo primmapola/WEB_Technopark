@@ -1,0 +1,21 @@
+{% load static %}
+
+{% block answer_item %}
+<div class="card mb-4">
+    <div class="card-header">
+        <span>Пользователь: Elon Musk</span>
+        <small class="float-right">Дата ответа: 20.20.20</small>
+    </div>
+    <div class="card-body">
+        <p class="card-text">Twitter is better than instagram</p>
+    </div>
+    <div class="card-footer d-flex justify-content-between align-items-center">
+        <div>
+            {% block rating %}
+                {% include 'components/rating.html' %}
+            {% endblock %}
+        </div>
+        <img src="{% static 'svg/check.svg' %}" style="cursor: pointer;" onclick="">
+    </div>
+</div>
+{% endblock %}
