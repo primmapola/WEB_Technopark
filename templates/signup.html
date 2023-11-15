@@ -1,0 +1,52 @@
+{% extends 'layouts/base_unlog.html' %}
+
+{% load static %}
+
+{% block content %}
+<div class="col-md-8">
+    <div class="login-page">
+        <h2>Registration</h2>
+        <!-- Сообщение об ошибке -->
+        {% if error_message %}
+            <div class="alert alert-danger" role="alert">
+                Sorry, this email address already registered!
+            </div>
+        {% endif %}
+
+                <form class="mb-3">
+                    <div class="form-group">
+                        <label for="login">Login</label>
+                        <input type="text" class="form-control" id="login" placeholder="Enter login">
+                    </div>
+
+                    <div class="form-group">
+                        <label for="email">Email</label>
+                        <input type="email" class="form-control" id="email" placeholder="Enter email">
+                    </div>
+
+                    <div class="form-group">
+                        <label for="nickname">NickName</label>
+                        <input type="text" class="form-control" id="nickname" placeholder="Enter nickname">
+                    </div>
+
+                    <div class="form-group">
+                        <label for="password">Password</label>
+                        <input type="password" class="form-control" id="password" placeholder="Password">
+                    </div>
+
+                    <div class="form-group">
+                        <label for="repeat-password">Repeat password</label>
+                        <input type="password" class="form-control" id="repeat-password" placeholder="Repeat Password">
+                    </div>
+
+                    <div class="form-group">
+                        <label for="avatar" class="form-label">Avatar</label>
+                        <input class="form-control-file" type="file" id="avatar">
+                    </div>
+
+                    <button type="submit" class="btn btn-primary">Register!</button>
+                </form>
+    <a href="{% url 'loginView' %}" class="btn btn-secondary">Login instead</a>
+    </div>
+</div>
+{% endblock %}

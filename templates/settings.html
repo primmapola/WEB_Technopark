@@ -1,0 +1,38 @@
+{% extends 'layouts/base.html' %}
+
+{% load static %}
+
+{% block content %}
+<div class="col-md-8">
+    <div class="settings-page">
+        <h2>Настройки профиля: NickName</h2>
+        <form>
+            <div class="form-group">
+                <label for="login">Логин</label>
+                <input type="text" class="form-control" id="login" placeholder="Введите логин">
+            </div>
+
+            <div class="form-group">
+                <label for="email">Email</label>
+                <input type="email" class="form-control" id="email" placeholder="Введите email">
+            </div>
+
+            <div class="form-group">
+                <label for="nickname">Псевдоним</label>
+                <input type="text" class="form-control" id="nickname" placeholder="Введите псевдоним">
+            </div>
+
+            <div class="form-group d-flex align-items-center">
+                <div>
+                    <label for="avatar">Аватар</label>
+                    <input type="file" class="form-control-file" id="avatar">
+                    <small class="form-text text-muted">Выберите файл изображения для аватара.</small>
+                </div>
+                <img src="{% static 'assets/avatar.png' %}" alt="Аватар" style="margin-left: 15px; width: 200px; height: 200px;">
+            </div>
+
+            <button type="submit" class="btn btn-primary">Сохранить изменения</button>
+        </form>
+    </div>
+</div>
+{% endblock %}

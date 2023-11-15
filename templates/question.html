@@ -1,0 +1,46 @@
+{% extends 'layouts/base.html' %}
+{% block content %}
+<div class="col-md-8">
+
+    <div class="question-block mb-5 p-3 border rounded">
+        <h2 class="question-title mb-2">{{ question.title }}</h2>
+
+        <p class="question-meta mb-3">
+            <small>Posted by <a href="#">Author</a> on <time datetime="2023-01-01">Jan 1, 2023</time></small>
+            <span class="question-tags float-right">
+                <a href="{% url 'tagged_questions' 'HTML' %}"> <span class="badge badge-primary">HTML</span></a>
+                <a href="{% url 'tagged_questions' 'CSS' %}"> <span class="badge badge-secondary">CSS</span></a>
+            </span>
+        </p>
+
+        <div class="question-body">
+            <p>{{ question.content }}</p>
+        </div>
+    </div>
+
+    <div class="add-answer-block mb-5">
+        <h3 class="add-answer-title mb-3">Ваш ответ</h3>
+        <form method="post">
+            <div class="form-group">
+                <textarea class="form-control" id="answerContent" name="answerContent" rows="4" placeholder="Введите ваш ответ здесь..."></textarea>
+            </div>
+            <button type="submit" class="btn btn-primary">Отправить ответ</button>
+        </form>
+    </div>
+
+    <div class="answers-block">
+        <h3 class="answers-title mb-3">Ответы</h3>
+
+
+        {% block answer_item %}
+            {% include 'components/answer_item.html' %}
+            {% include 'components/answer_item.html' %}
+            {% include 'components/answer_item.html' %}
+        {% endblock %}
+
+    {% block paginate %}
+        {% include 'components/paginate.html' %}
+    {% endblock %}
+    </div>
+</div>
+{% endblock %}

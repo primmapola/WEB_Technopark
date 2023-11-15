@@ -1,0 +1,106 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>StackOver</title>
+    <!-- Bootstrap CSS -->
+    <link href="{% static 'css/bootstrap.min.css' %}" rel="stylesheet">
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+</head>
+
+<body>
+
+   <header class="d-flex justify-content-between align-items-center mb-4">
+    <div class="logo">
+        <a href="{% url 'mainView' %}" style="font-size: 24px; text-decoration: none; color: inherit;">StackOver</a>
+    </div>
+
+    <a href="{% url 'askView' %}" class="btn btn-primary">Задать вопрос</a>
+
+    <div class="search">
+        <input type="text" class="form-control" placeholder="Search">
+    </div>
+
+    <div class="user-info">
+        <a href="{% url 'loginView' %}" class="btn btn-outline-primary btn-sm">Login</a>
+        <a href="{% url 'signupView' %}" class="btn btn-outline-success btn-sm">SignUp</a>
+    </div>
+</header>
+
+    <div class="container mt-4">
+        <main class="row">
+
+            {% block content %}
+            {% endblock %}
+
+            <aside class="col-md-4">
+                <div class="popular-tags mb-4">
+                    <h5>Популярные теги</h5>
+                    <div class="tags">
+                        <a href="{% url 'tagged_questions' 'HTML' %}" class="badge badge-primary">HTML</a>
+                        <a href="{% url 'tagged_questions' 'CSS' %}" class="badge badge-secondary">CSS</a>
+                        <a href="{% url 'tagged_questions' 'JS' %}" class="badge badge-primary">JS</a>
+                        <a href="{% url 'tagged_questions' 'Swift' %}" class="badge badge-secondary">Swift</a>
+                        <a href="{% url 'tagged_questions' 'React' %}" class="badge badge-primary">React</a>
+                    </div>
+                </div>
+
+
+                <div class="best-members">
+                    <h5>Лучшие пользователи</h5>
+                    <ul class="list-unstyled">
+                        <li class="media mb-3">
+                            <img src="{% static 'assets/avatar.png' %}" class="mr-3" alt="User1" style="width: 64px; height: 64px; border-radius: 50%;">
+                            <div class="media-body">
+                                <h6 class="mt-0 mb-1">User1</h6>
+                                Ответов: 120, Лайков: 300
+                            </div>
+                        </li>
+                        <li class="media mb-3">
+                            <img src="{% static 'assets/avatar.png' %}" class="mr-3" alt="User2" style="width: 64px; height: 64px; border-radius: 50%;">
+                            <div class="media-body">
+                                <h6 class="mt-0 mb-1">User2</h6>
+                                Ответов: 110, Лайков: 280
+                            </div>
+                        </li>
+                        <li class="media mb-3">
+                            <img src="{% static 'assets/avatar.png' %}" class="mr-3" alt="User1" style="width: 64px; height: 64px; border-radius: 50%;">
+                            <div class="media-body">
+                                <h6 class="mt-0 mb-1">User1</h6>
+                                Ответов: 120, Лайков: 300
+                            </div>
+                        </li>
+                        <li class="media mb-3">
+                            <img src="{% static 'assets/avatar.png' %}" class="mr-3" alt="User1" style="width: 64px; height: 64px; border-radius: 50%;">
+                            <div class="media-body">
+                                <h6 class="mt-0 mb-1">User1</h6>
+                                Ответов: 120, Лайков: 300
+                            </div>
+                        </li>
+                        <li class="media mb-3">
+                            <img src="{% static 'assets/avatar.png' %}" class="mr-3" alt="User1" style="width: 64px; height: 64px; border-radius: 50%;">
+                            <div class="media-body">
+                                <h6 class="mt-0 mb-1">User1</h6>
+                                Ответов: 120, Лайков: 300
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+
+
+            </aside>
+        </main>
+        <footer class="mt-4">
+            <!-- Нижняя часть сайта -->
+        </footer>
+    </div>
+
+    <!-- jQuery и Bootstrap JS -->
+   <script src="{% static 'js/jquery.min.js' %}"></script>
+    <script src="{% static 'js/bootstrap.min.js' %}"></script>
+</body>
+</html>

@@ -1,0 +1,103 @@
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+}
+
+.container {
+    width: 80%;
+    margin: auto;
+}
+
+header {
+    background-color: #343a40;
+    color: #ffffff;
+    padding: 10px 20px;
+}
+
+
+.search input {
+    padding: 5px 10px;
+}
+
+.questions, aside {
+    padding: 20px;
+}
+
+.popular-tags, .best-members {
+    border: 1px solid #ccc;
+    margin-bottom: 20px;
+    padding: 10px;
+}
+
+.best-members h5 {
+    color: #333;
+    margin-bottom: 15px;
+}
+
+.best-members .media {
+    align-items: center;
+}
+
+.best-members .media img {
+    border: 2px solid #ddd;
+}
+
+.best-members .media-body h6 {
+    margin-bottom: 5px;
+    font-size: 1rem;
+}
+
+header {
+    background-color: #343a40; /* темный фон */
+    color: #ffffff; /* белый текст */
+}
+
+.logo {
+    color: #ffffff;
+}
+
+.user-info,
+.user-info img {
+    color: #ffffff;
+}
+
+header a {
+    color: #ffffff;
+}
+
+
+.search input {
+    background-color: #495057;
+    color: #ffffff;
+}
+
+.search input::placeholder {
+    color: #ced4da;
+}
+
+.pagination {
+    text-align: center;
+    padding: 20px 0;
+}
+
+.pagination a, .pagination span {
+    display: inline-block;
+    padding: 8px 16px;
+    margin: 0 4px;
+    border: 1px solid #ddd;
+    text-decoration: none;
+    color: #428bca;
+}
+
+.pagination .current, .pagination .disabled {
+    background-color: #f5f5f5;
+    color: #777;
+}
+
+.pagination a:hover {
+    border-color: #428bca;
+}
+
+
+

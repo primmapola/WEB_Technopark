@@ -1,0 +1,19 @@
+{% extends 'layouts/base.html' %}
+
+{% load static %}
+
+{% block content %}
+
+<section class="questions col-md-8">
+
+    {% for question in page_obj %}
+        {% include 'components/question_item.html' %}
+    {% endfor %}
+
+    <!-- Pagination Section -->
+{% block paginate %}
+    {% include 'components/paginate.html' %}
+{% endblock %}
+</section>
+
+{% endblock %}
