@@ -1,6 +1,6 @@
 from django.http import HttpResponse
 from django.shortcuts import render, get_object_or_404
-from django.core.paginator import Paginator
+from django.core.paginator import Paginator, EmptyPage, PageNotAnInteger
 
 questions = [
         {
@@ -11,14 +11,24 @@ questions = [
     ]
 
 
-def index(request):
-    items_per_page = 3
-
-    paginator = Paginator(questions, items_per_page)
-
+def paginate_items(request, items, items_per_page):
+    paginator = Paginator(items, items_per_page)
     page_number = request.GET.get('page')
 
-    page_obj = paginator.get_page(page_number)
+    try:
+        page_obj = paginator.page(page_number)
+    except PageNotAnInteger:
+        # If page is not an integer, deliver first page.
+        page_obj = paginator.page(1)
+    except EmptyPage:
+        # If page is out of range (e.g., 9999), deliver last page.
+        page_obj = paginator.page(paginator.num_pages)
+
+    return page_obj
+
+def index(request):
+    items_per_page = 3
+    page_obj = paginate_items(request, questions, items_per_page)
 
     return render(request, 'index.html', {'page_obj': page_obj})
 
@@ -33,14 +43,9 @@ from django.shortcuts import render
 
 def tagged_questions(request, tag_name):
     items_per_page = 3
+    page_obj = paginate_items(request, questions, items_per_page)
 
-    paginator = Paginator(questions, items_per_page)
-
-    page_number = request.GET.get('page')
-
-    page_obj = paginator.get_page(page_number)
-
-    return render(request, 'tagged_questions.html', {'page_obj': page_obj, 'tag_name': tag_name})
+    return render(request, 'tagged_questions.html', {'page_obj': page_obj})
 
 def settings(request):
     return render(request, template_name='settings.html')

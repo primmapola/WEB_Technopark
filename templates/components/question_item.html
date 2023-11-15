@@ -5,21 +5,30 @@
         <a href="{% url 'questionView' question_id=question.id %}" class="btn-link text-dark">{{ question.title }}</a>
         <small class="float-right">Дата публикации: 18.10.2023</small>
     </div>
-    <div class="card-body">
-        <p class="card-text">{{ question.content }}</p>
-        <p class="card-text">
-            <small class="text-muted">Автор: UserName</small>
-            <span class="question-tags float-right">
-                <a href="{% url 'tagged_questions' 'HTML' %}"> <span class="badge badge-primary">HTML</span></a>
-                <a href="{% url 'tagged_questions' 'CSS' %}"> <span class="badge badge-secondary">CSS</span></a>
-            </span>
-        </p>
-    </div>
-    <div class="card-footer d-flex justify-content-between align-items-center">
-        {%  block rating %}
-            {% include 'components/rating.html' %}
-        {% endblock %}
-        <span>Ответов: 20</span>
-        <a href="{% url 'questionView' question_id=question.id %}" class="btn btn-primary">Ответить</a>
+    <div class="d-flex flex-column">
+        <div class="row no-gutters">
+            <div class="col-md-4">
+                <img src="{% static 'assets/avatar.png' %}" class="card-img" alt="Question Image">
+            </div>
+            <div class="col-md-8">
+                <div class="card-body">
+                    <p class="card-text">{{ question.content }}</p>
+                    <p class="card-text">
+                        <small class="text-muted">Автор: UserName</small>
+                        <span class="question-tags float-right">
+                            <a href="{% url 'tagged_questions' 'HTML' %}"> <span class="badge badge-primary">HTML</span></a>
+                            <a href="{% url 'tagged_questions' 'CSS' %}"> <span class="badge badge-secondary">CSS</span></a>
+                        </span>
+                    </p>
+                </div>
+            </div>
+        </div>
+        <div class="card-footer d-flex justify-content-between align-items-center align-self-end col-md-12">
+            {% block rating %}
+                {% include 'components/rating.html' %}
+            {% endblock %}
+            <span>Ответов: 20</span>
+            <a href="{% url 'questionView' question_id=question.id %}" class="btn btn-primary">Ответить</a>
+        </div>
     </div>
 </div>
