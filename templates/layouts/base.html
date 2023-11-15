@@ -19,7 +19,10 @@
         <a href="{% url 'mainView' %}" style="font-size: 24px; text-decoration: none; color: inherit;">StackOver</a>
     </div>
 
-    <a href="{% url 'askView' %}" class="btn btn-primary">Задать вопрос</a>
+    <div class="header-buttons">
+        <a href="{% url 'askView' %}" class="btn btn-primary">Задать вопрос</a>
+        <a href="{% url 'hotView' %}" class="btn btn-info">Лучшие вопросы</a>
+    </div>
 
     <div class="search">
         <input type="text" class="form-control" placeholder="Search">

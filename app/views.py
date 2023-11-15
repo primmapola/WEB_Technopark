@@ -1,6 +1,7 @@
 from django.http import HttpResponse
 from django.shortcuts import render, get_object_or_404
 from django.core.paginator import Paginator, EmptyPage, PageNotAnInteger
+from app.models import Question, Tag, Answer
 
 questions = [
         {
@@ -18,10 +19,8 @@ def paginate_items(request, items, items_per_page):
     try:
         page_obj = paginator.page(page_number)
     except PageNotAnInteger:
-        # If page is not an integer, deliver first page.
         page_obj = paginator.page(1)
     except EmptyPage:
-        # If page is out of range (e.g., 9999), deliver last page.
         page_obj = paginator.page(paginator.num_pages)
 
     return page_obj
@@ -39,8 +38,6 @@ def question(request, question_id):
 def ask(request):
     return render(request, template_name='ask.html')
 
-from django.shortcuts import render
-
 def tagged_questions(request, tag_name):
     items_per_page = 3
     page_obj = paginate_items(request, questions, items_per_page)
@@ -55,3 +52,11 @@ def login(request):
 
 def signup(request):
     return render(request, template_name='signup.html', context={'error_message': True})
+
+def hot(request):
+    items_per_page = 3
+    page_obj = paginate_items(request, questions, items_per_page)
+
+    return render(request, 'hot.html', {'page_obj': page_obj})
+
+
